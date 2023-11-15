@@ -1,5 +1,6 @@
 import 'package:app_for_voco/feature/auth/data/contract/auth_datasource_contract.dart';
 import 'package:app_for_voco/feature/auth/data/datasources/auth_datasource.dart';
+import 'package:app_for_voco/feature/auth/provider/auth_provider.dart';
 
 import '/feature/auth/domain/contract/auth_repository.dart';
 import '/feature/auth/domain/repositories/auth_repository.dart';
@@ -74,11 +75,11 @@ void setupRepositories() {
 
 void setupProvider() {
   //
-  // getit.registerLazySingleton<AuthProvider>(
-  //   () => AuthProvider(
-  //     authUseCase: getit(),
-  //   ),
-  // );
+  getit.registerLazySingleton<AuthProvider>(
+    () => AuthProvider(
+      authUseCase: getit(),
+    ),
+  );
 
   // getit.registerLazySingleton<HomeProvider>(
   //   () => HomeProvider(
