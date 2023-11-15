@@ -28,6 +28,7 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+  build_runner: ^2.4.6
   cupertino_icons: ^1.0.2
   easy_localization: ^3.0.3
   flutter:
@@ -36,6 +37,7 @@ dependencies:
   flutter_screenutil: ^5.9.0
   freezed: ^2.4.5
   freezed_annotation: ^2.4.1
+  json_serializable: ^6.7.1
   kartal: ^3.5.0
   uuid: ^4.2.1
 
