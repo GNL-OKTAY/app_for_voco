@@ -2,7 +2,7 @@ import 'package:app_for_voco/injection/injection_container.dart';
 import 'package:flutter/material.dart';
 
 // import '../core/navigation/navigation_service.dart';
-import '../feature/auth/provider/user_id_provider.dart';
+import '../feature/auth/controller/user_id_provider.dart';
 
 // final navigator = NavigationService.shared;
 

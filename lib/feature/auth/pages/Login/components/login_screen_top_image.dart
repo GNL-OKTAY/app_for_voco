@@ -1,9 +1,9 @@
-import 'package:easy_localization/easy_localization.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:kartal/kartal.dart';
 
-import '../../../../../core/localization/locale_keys.g.dart';
+
 import '../../../../../core/themes/constants/color_constants.dart';
 
 class LoginScreenTopImage extends StatelessWidget {
@@ -17,7 +17,7 @@ class LoginScreenTopImage extends StatelessWidget {
       children: [
         const SizedBox(height: defaultPadding * 4),
         Text(
-          LocaleKeys.login_login.tr().toUpperCase(),
+          "LocaleKeys.login_login.tr().toUpperCase()",
           style: context.general.textTheme.displayLarge,
         ),
         const SizedBox(height: defaultPadding * 2),

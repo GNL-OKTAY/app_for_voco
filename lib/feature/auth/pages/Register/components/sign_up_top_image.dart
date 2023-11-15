@@ -1,10 +1,8 @@
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:kartal/kartal.dart';
 
-import '../../../../../core/localization/locale_keys.g.dart';
-import '../../../../../core/themes/constants/color_constants.dart';
+import '/core/themes/constants/color_constants.dart';
 
 class SignUpScreenTopImage extends StatelessWidget {
   const SignUpScreenTopImage({
@@ -16,7 +14,7 @@ class SignUpScreenTopImage extends StatelessWidget {
     return Column(
       children: [
         Text(
-          LocaleKeys.register_register.tr().toUpperCase(),
+          "LocaleKeys.register_register.tr().toUpperCase()",
           style: context.general.textTheme.displayLarge,
         ),
         const SizedBox(height: defaultPadding),

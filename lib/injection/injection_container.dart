@@ -1,13 +1,9 @@
-import 'package:app_for_voco/feature/auth/data/contract/auth_datasource_contract.dart';
-import 'package:app_for_voco/feature/auth/data/datasources/auth_datasource.dart';
-import 'package:app_for_voco/feature/auth/provider/auth_provider.dart';
-
-import '/feature/auth/domain/contract/auth_repository.dart';
-import '/feature/auth/domain/repositories/auth_repository.dart';
-import '/feature/auth/domain/usecases/auth_usecase.dart';
-import '/feature/auth/provider/user_id_provider.dart';
-
 import 'package:get_it/get_it.dart';
+
+import '../feature/auth/controller/user_id_provider.dart';
+import '../feature/auth/service/contract/auth_datasource_contract.dart';
+import '../feature/auth/service/datasources/reqres_auth_datasource.dart';
+import '../feature/auth/controller/auth_controller.dart';
 
 final GetIt getit = GetIt.asNewInstance();
 
@@ -25,7 +21,7 @@ void setupDependencies() {
 void setupDataSources() {
   // GetIt.instance.registerSingleton<WellcomeDataSource>(WellcomeDataSource());
   getit.registerLazySingleton<AuthDataSourceContract>(
-    () => AuthDataSource(),
+    () => ReqResAuthDataSource(),
   );
   // getit.registerLazySingleton<WelcomeDataSourceContract>(
   //   WellcomeDataSource.new,
@@ -46,11 +42,11 @@ void setupDataSources() {
 }
 
 void setupRepositories() {
-  getit.registerLazySingleton<AuthRepositoryContract>(
-    () => AuthRepository(
-      loginDataSource: getit(),
-    ),
-  );
+  // getit.registerLazySingleton<AuthRepositoryContract>(
+  //   () => AuthRepository(
+  //     loginDataSource: getit(),
+  //   ),
+  // );
 
   // getit
   //   ..registerLazySingleton<WelcomeRepository>(
@@ -75,9 +71,9 @@ void setupRepositories() {
 
 void setupProvider() {
   //
-  getit.registerLazySingleton<AuthProvider>(
-    () => AuthProvider(
-      authUseCase: getit(),
+  getit.registerLazySingleton<AuthController>(
+    () => AuthController(
+      authDataSource: getit(),
     ),
   );
 
@@ -117,11 +113,11 @@ void setupUseCases() {
   //   ),
   // );
 
-  getit.registerLazySingleton<AuthUseCase>(
-    () => AuthUseCase(
-      authRepository: getit(),
-    ),
-  );
+  // getit.registerLazySingleton<AuthUseCase>(
+  //   () => AuthUseCase(
+  //     authRepository: getit(),
+  //   ),
+  // );
 
   // getit.registerLazySingleton<WelcomeUsecase>(
   //   () => WelcomeUsecase(

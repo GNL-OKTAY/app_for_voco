@@ -1,21 +1,17 @@
-import 'package:app_for_voco/core/error/result_types/state_result/state_result.dart';
-import 'package:app_for_voco/core/extensions/context_extension.dart';
-import 'package:app_for_voco/core/localization/locale_keys.g.dart';
-import 'package:app_for_voco/core/widgets/button/buttons.dart';
-import 'package:app_for_voco/feature/auth/data/model/user_register_model.dart';
-import 'package:app_for_voco/feature/auth/model/user_data_model.dart';
-import 'package:app_for_voco/feature/auth/provider/auth_provider.dart';
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../../../../../core/helpers/regex/regex_helper.dart';
-import '../../../../../core/themes/constants/color_constants.dart';
 
-import '../../../widget/already_have_an_account_acheck.dart';
+import '/core/error/result_types/state_result/state_result.dart';
+import '/core/extensions/context_extension.dart';
+import '/core/helpers/regex/regex_helper.dart';
+import '/core/themes/constants/color_constants.dart';
+import '/core/widgets/button/buttons.dart';
+import '../../../service/model/user_register_model.dart';
+import '../../../model/user_data_model.dart';
+import '../../../controller/auth_controller.dart';
 import '../../../widget/auth_text_form_field.dart';
-import '../../Login/login_screen.dart';
 
 class SignUpForm extends ConsumerStatefulWidget {
   const SignUpForm({
@@ -50,19 +46,16 @@ class _SignUpFormState extends ConsumerState<SignUpForm> {
           const SizedBox(height: defaultPadding),
           _registerButton(context),
           const SizedBox(height: defaultPadding),
-          _changePage(context),
+          // _changePage(context),
         ],
       ),
     );
   }
 
   Widget _registerButton(BuildContext context) => CustomElevatedButton(
-        isLoading: ref.watch(authProvider).registerState ==
-                const StateResult<UserDataModel?>.loading()
-            ? true
-            : false,
+        isLoading: ref.watch(authProvider).registerState == const StateResult<UserDataModel?>.loading() ? true : false,
         // isLoading: false,
-        text: LocaleKeys.register_register.tr(),
+        text: "LocaleKeys.register_register.tr()",
         // child: const Text("singup"),
         // LocaleKeys.register_singUp.tr(),
         onPressed: () async {
@@ -85,20 +78,20 @@ class _SignUpFormState extends ConsumerState<SignUpForm> {
                       widget: CupertinoAlertDialog(
                         title: Text(
                           // "merhaba kullanıcı",
-                          '${LocaleKeys.register_hello.tr()}, ${_username.text}',
+                          'Hello, ${_username.text}',
                           textAlign: TextAlign.center,
                         ),
                         content: Padding(
                           padding: EdgeInsets.only(top: 20.h),
                           child: Column(
                             children: [
-                              Text(
-                                LocaleKeys.register_RegistrationSuccessful.tr(),
+                              const Text(
+                                "LocaleKeys.register_RegistrationSuccessful.tr()",
                                 textAlign: TextAlign.center,
                               ),
                               SizedBox(height: 20.h),
-                              Text(
-                                LocaleKeys.register_NYCEnjoy.tr(),
+                              const Text(
+                                "LocaleKeys.register_NYCEnjoy.tr()",
                                 textAlign: TextAlign.center,
                               ),
                             ],
@@ -120,22 +113,21 @@ class _SignUpFormState extends ConsumerState<SignUpForm> {
       );
 
   Widget _password2TextField() => AuthTextField(
-        labelText: LocaleKeys.login_loginPassword.tr(),
+        labelText: "LocaleKeys.login_loginPassword.tr()",
         controller: _password2,
         isObscure: true,
         validator: (val) {
-          final hasSpecialCharacter =
-              RegexHelper.shared.hasSpecialCharacter(email: val ?? '');
+          final hasSpecialCharacter = RegexHelper.shared.hasSpecialCharacter(email: val ?? '');
           if (val!.isEmpty) {
-            return LocaleKeys.register_registerPlsPassword.tr();
+            return "LocaleKeys.register_registerPlsPassword.tr()";
           } else {
             if (val.length < 7) {
-              return LocaleKeys.register_plsentEnMoreSevenChr.tr();
+              return "LocaleKeys.register_plsentEnMoreSevenChr.tr()";
             } else {
               if (hasSpecialCharacter) {
                 return null;
               } else {
-                return LocaleKeys.register_plsentEnMoreSevenChr.tr();
+                return "LocaleKeys.register_plsentEnMoreSevenChr.tr()";
               }
             }
           }
@@ -143,22 +135,21 @@ class _SignUpFormState extends ConsumerState<SignUpForm> {
       );
 
   Widget _password1TextField() => AuthTextField(
-        labelText: LocaleKeys.login_loginPassword.tr(),
+        labelText: "LocaleKeys.login_loginPassword.tr()",
         controller: _password1,
         isObscure: true,
         validator: (val) {
-          final hasSpecialCharacter =
-              RegexHelper.shared.hasSpecialCharacter(email: val ?? '');
+          final hasSpecialCharacter = RegexHelper.shared.hasSpecialCharacter(email: val ?? '');
           if (val!.isEmpty) {
-            return LocaleKeys.register_registerPlsPassword.tr();
+            return "LocaleKeys.register_registerPlsPassword.tr()";
           } else {
             if (val.length < 7) {
-              return LocaleKeys.register_plsentEnMoreSevenChr.tr();
+              return "LocaleKeys.register_plsentEnMoreSevenChr.tr()";
             } else {
               if (hasSpecialCharacter) {
                 return null;
               } else {
-                return LocaleKeys.register_plsentEnMoreSevenChr.tr();
+                return "LocaleKeys.register_plsentEnMoreSevenChr.tr()";
               }
             }
           }
@@ -166,57 +157,55 @@ class _SignUpFormState extends ConsumerState<SignUpForm> {
       );
 
   Widget _emailTextField() => AuthTextField(
-        labelText: LocaleKeys.register_Mail.tr(),
+        labelText: "LocaleKeys.register_Mail.tr()",
         controller: _email,
         validator: (val) {
           if (val!.isEmpty) {
-            return LocaleKeys.register_plsEnterEmail.tr();
+            return "LocaleKeys.register_plsEnterEmail.tr()";
           } else {
-            final isCorrectEmail =
-                RegexHelper.shared.isCorrectEmail(email: val);
+            final isCorrectEmail = RegexHelper.shared.isCorrectEmail(email: val);
             if (isCorrectEmail) {
               return null;
             } else {
-              return LocaleKeys.register_correctEmail.tr();
+              return "LocaleKeys.register_correctEmail.tr()";
             }
           }
         },
       );
 
   Widget _usernameTextField() => AuthTextField(
-        labelText: LocaleKeys.register_userName.tr(),
+        labelText: "LocaleKeys.register_userName.tr()",
         controller: _username,
         validator: (val) {
           if (val!.isEmpty) {
-            return LocaleKeys.register_plsEntrUserName.tr();
+            return "LocaleKeys.register_plsEntrUserName.tr()";
           } else {
-            final hasSpecialCharacter =
-                RegexHelper.shared.hasSpecialCharacter(email: val);
+            final hasSpecialCharacter = RegexHelper.shared.hasSpecialCharacter(email: val);
 
             if (hasSpecialCharacter) {
               return null;
             } else {
-              return LocaleKeys.register_doNotSpCharacter.tr();
+              return "LocaleKeys.register_doNotSpCharacter.tr()";
             }
           }
         },
       );
 
-  AlreadyHaveAnAccountCheck _changePage(BuildContext context) {
-    return AlreadyHaveAnAccountCheck(
-      login: false,
-      press: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) {
-              return const LoginScreen();
-            },
-          ),
-        );
-      },
-    );
-  }
+  // AlreadyHaveAnAccountCheck _changePage(BuildContext context) {
+  //   return AlreadyHaveAnAccountCheck(
+  //     login: false,
+  //     press: () {
+  //       Navigator.push(
+  //         context,
+  //         MaterialPageRoute(
+  //           builder: (context) {
+  //             return const LoginScreen();
+  //           },
+  //         ),
+  //       );
+  //     },
+  //   );
+  // }
 
   bool _validateInputs() {
     if (_formKey.currentState!.validate()) {

@@ -1,7 +1,5 @@
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../../core/localization/locale_keys.g.dart';
 import '../../Login/login_screen.dart';
 import '../../Register/signup_screen.dart';
 
@@ -37,9 +35,7 @@ class LoginAndSignupBtn extends StatelessWidget {
                 ),
               );
             },
-            child: Text(
-              LocaleKeys.login_login.tr().toUpperCase(),
-            ),
+            child: const Text("Login"),
           ),
         ),
         const SizedBox(width: 16),
@@ -54,13 +50,10 @@ class LoginAndSignupBtn extends StatelessWidget {
               ),
             );
           },
-          style: ElevatedButton.styleFrom(
-              backgroundColor:
-                  const Color.fromARGB(255, 0, 102, 165).withOpacity(0.3),
-              elevation: 0),
-          child: Text(
-            LocaleKeys.register_register.tr().toUpperCase(),
-            style: const TextStyle(color: Colors.black),
+          style: ElevatedButton.styleFrom(backgroundColor: const Color.fromARGB(255, 0, 102, 165).withOpacity(0.3), elevation: 0),
+          child: const Text(
+            "Register",
+            style: TextStyle(color: Colors.black),
           ),
         ),
       ],

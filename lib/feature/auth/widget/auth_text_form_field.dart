@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -47,13 +46,11 @@ class _AuthTextFieldState extends State<AuthTextField> {
           decoration: InputDecoration(
             labelText: widget.labelText,
             labelStyle: const TextStyle(fontSize: 18),
-
             errorStyle: const TextStyle(fontSize: 10),
             contentPadding: EdgeInsets.symmetric(
               vertical: 2.5.h,
               horizontal: 10.0.w,
             ),
-            // hintStyle: const TextStyle(color: Colors.black),
             suffixIcon: IconButton(
               padding: EdgeInsets.zero,
               icon: NewWidget(

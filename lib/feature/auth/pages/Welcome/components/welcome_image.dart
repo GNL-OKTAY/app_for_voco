@@ -57,18 +57,16 @@ class WelcomeImage2 extends StatelessWidget {
       padding: const EdgeInsets.all(18.0),
       child: Container(
           decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(60),
-              // color: const Color.fromARGB(0, 0, 0, 0),
-              image: DecorationImage(
-                  colorFilter: ColorFilter.mode(
-                    const Color.fromARGB(255, 0, 0, 0).withOpacity(
-                        0.3), // Buradaki 0.5 şeffaflık seviyesini temsil eder
-                    BlendMode.darken,
-                  ),
-                  image: Image.asset(
-                    imagePat,
-                    fit: BoxFit.cover,
-                  ).image)),
+            borderRadius: BorderRadius.circular(60),
+            // color: const Color.fromARGB(0, 0, 0, 0),
+            // image: DecorationImage(
+            //   colorFilter: ColorFilter.mode(
+            //     const Color.fromARGB(255, 0, 0, 0).withOpacity(0.3), // Buradaki 0.5 şeffaflık seviyesini temsil eder
+            //     BlendMode.darken,
+            //   ),
+            //   image: Image.asset(imagePat, fit: BoxFit.cover).image,
+            // ),
+          ),
           width: 200,
           height: 200,
           child: Center(

@@ -1,23 +1,54 @@
+// import 'dart:html';
+// import 'dart:ui_web' as ui;
+import 'dart:ui';
+
 import 'package:app_for_voco/feature/auth/pages/Login/login_screen.dart';
+
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+import 'core/helpers/screen_util_helper/screen_util.dart';
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(const MyApp());
+import 'global/initialize/app_theme.dart';
+import 'global/initialize/application_start.dart';
+
+void main() async {
+  await ApplicationStart.init();
+
+  runApp(
+    const ProviderScope(
+      child: MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  const MyApp({Key? key}) : super(key: key);
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
+    return ScreenUtilHelper.screenUtilInit(
+      MaterialApp(
+        title: 'Case Study Voco',
+        theme: AppTheme.theme,
+        // initialRoute: KRoute.splashPage,
+        // onGenerateRoute: NavigationRoute.shared.generateRoute,
+        // navigatorKey: NavigationService.shared.navigatorKey,
+        // locale: context.locale,
+        // supportedLocales: context.supportedLocales,
+        // localizationsDelegates: context.localizationDelegates,
+        scrollBehavior: CustomScrollBehaviour(),
+        debugShowCheckedModeBanner: false,
+        home: const LoginScreen(),
       ),
-      home: const LoginScreen(),
     );
   }
+}
+
+class CustomScrollBehaviour extends MaterialScrollBehavior {
+  @override
+  Set<PointerDeviceKind> get dragDevices => {
+        PointerDeviceKind.touch,
+        PointerDeviceKind.mouse,
+      };
 }

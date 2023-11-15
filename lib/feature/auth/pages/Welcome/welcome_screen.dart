@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:kartal/kartal.dart';
-import '../../../../core/helpers/responsive/responsive.dart';
-import '../../../../core/themes/constants/color_constants.dart';
-import '../../widget/background.dart';
-import 'components/login_signup_btn.dart';
+
+import '/core/themes/constants/color_constants.dart';
 import 'components/welcome_image.dart';
 import 'components/welcome_page_show.dart';
 
@@ -12,24 +10,9 @@ class WelcomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Background(
-      childAppbar: Row(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          SizedBox(width: 16),
-          // IconConstants.appIconBlue.toImage,
-          Expanded(flex: 1, child: SizedBox(width: 16)),
-          Expanded(flex: -1, child: LoginAndSignupBtn()),
-          SizedBox(width: 16),
-        ],
-      ),
-      child: SingleChildScrollView(
-        child: SafeArea(
-          child: Responsive(
-            desktop: DesktopWelcomeScreen(),
-            mobile: MobileWelcomeScreen(),
-          ),
-        ),
+    return const SingleChildScrollView(
+      child: SafeArea(
+        child: MobileWelcomeScreen(),
       ),
     );
   }

@@ -1,0 +1,29 @@
+// import 'package:app_for_voco/global/initialize/app_cache.dart';
+
+import 'package:flutter/material.dart';
+
+import 'package:kartal/kartal.dart';
+
+import '../../injection/injection_container.dart';
+
+@immutable
+class ApplicationStart {
+  const ApplicationStart._();
+  static Future<void> init() async {
+    WidgetsFlutterBinding.ensureInitialized();
+
+    await DeviceUtility.instance.initPackageInfo();
+    // await Firebase.initializeApp(
+    //   options: DefaultFirebaseOptions.currentPlatform,
+    // );
+    setupDependencies();
+    // FirebaseUIAuth.configureProviders(
+    //   [
+    //     EmailAuthProvider(),
+    //     GoogleProvider(clientId: ''),
+    //   ],
+    // );
+    // await AppChache.instance.setup();
+    // initializeDateFormatting(await findSystemLocale());
+  }
+}
