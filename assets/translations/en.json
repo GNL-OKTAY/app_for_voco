@@ -1,0 +1,38 @@
+{
+    "splash": { "appName": "" },
+
+    "login": {
+        "loginWelcomeBack": "Welcome Back 👋",
+        "loginWelcomeDetail": "I am happy to see you again. You can continue where you left off by logging in",
+        "login": "login",
+        "signIn": "sign in",
+        "loginSuccessful": "login successful",
+        "loginMail": "Mail",
+        "logininvaledMail": "Invalid e-mail adress.",
+        "loginPassword": "password",
+        "loginPlsPassword": "Please enter password.",
+        "loginPlsChrPassword": "Please enter more than 7 characters.",
+        "loginPlsSpChrPassword": "You can't use special characters.",
+        "continueToApp": "Continue to app",
+        "newTo": "New to  ",
+        "TitUp": "Think It Up ?  "
+    },
+    "register": {
+        "hello": "Hello",
+        "register": "Register",
+        "userName": "User Name",
+        "singUp": "Sign Up",
+        "RegistrationSuccessful": "Registration is successful.",
+        "NYCEnjoy": "Now you can enjoy Think It Up app!",
+        "enterPasswordAgain": "Please enter password again.",
+        "correctEmail": "Enter correct e-mail.",
+        "plsEnterEmail": "Please enter e-mail.",
+        "plsEntrUserName": "Please enter username.",
+        "doNotSpCharacter": "Don't use special characters.",
+        "plsentEnMoreSevenChr": "Please enter more than 7 characters.",
+        "PlsSpChrPassword": "You can't use special characters.",
+        "Mail": "Mail",
+        "registerPlsPassword": "Please enter password.",
+        "AlreadyhAccount":"Already have an Account ? "
+    }
+}

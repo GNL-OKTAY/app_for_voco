@@ -1,0 +1,38 @@
+{
+    "splash": { "appName": "" },
+
+    "login": {
+        "loginWelcomeBack": "Tekrar hoşgeldiniz 👋",
+        "loginWelcomeDetail": "Seni tekrar gördüğüme sevindim.Giriş yaparak kaldığınız yerde devam edebilirsiniz",
+        "login": "Giriş Yap",
+        "signIn": "kayıt olmak",
+        "loginSuccessful": "giriş başarılı",
+        "loginMail": "Mail",
+        "logininvaledMail": "Geçersiz e-mail adresi.",
+        "loginPassword": "Şifre",
+        "loginPlsPassword": "Lütfen girmek şifre.",
+        "loginPlsChrPassword": "Lütfen 7 karakterden fazla girin.",
+        "loginPlsSpChrPassword": "Özel karakterler kullanamazsınız.",
+        "continueToApp": "Uygulamaya devam et",
+        "newTo": "Hesapınız yok mu?  ",
+        "TitUp": "Bir Tane oluştur"
+    },
+    "register": {
+        "hello": "Merhaba",
+        "register": "Kayıt Ol",
+        "userName": "Kullanıcı adı",
+        "singUp": "üye Ol",
+        "RegistrationSuccessful": "Kayıt başarılı.",
+        "NYCEnjoy": "Şimdi düşünebilirsin!",
+        "enterPasswordAgain": "Lütfen Parolayı Tekrar Girin.",
+        "correctEmail": "Enter correct e-mail.",
+        "plsEnterEmail": "Lütfen e-posta giriniz.",
+        "plsEntrUserName": "Lütfen kullanıcı adı girin.",
+        "doNotSpCharacter": "Özel karakterler kullanmayın.",
+        "plsentEnMoreSevenChr": "Please enter more than 7 characters.",
+        "PlsSpChrPassword": "You can't use special characters.",
+        "Mail": "Mail",
+        "registerPlsPassword": "Lütfen Şifrenizi Giriniz.",
+        "AlreadyhAccount":"Zaten Hesabın Var mı?"
+    }
+}
