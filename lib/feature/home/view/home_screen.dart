@@ -53,6 +53,14 @@ class _HomePageState extends ConsumerState<HomePage> {
       "avatar": "https://reqres.in/img/faces/12-image.jpg"
     }
   ];
+
+  @override
+  void initState() {
+    // TODO: implement initState
+
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -61,6 +69,7 @@ class _HomePageState extends ConsumerState<HomePage> {
         itemCount: users.length,
         itemBuilder: (context, index) {
           final user = users[index];
+
           return ListTile(
             leading: CircleAvatar(
               backgroundImage: NetworkImage(user['avatar']),

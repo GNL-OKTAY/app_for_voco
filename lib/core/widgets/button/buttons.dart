@@ -3,27 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:kartal/kartal.dart';
 
-// class CustomIconButton extends StatelessWidget {
-//   final Widget icon;
-//   final Function onPressed;
-//   // final IconStateBase iconStateBase;
-
-//   const CustomIconButton({
-//     super.key,
-//     required this.icon,
-//     // required this.iconStateBase,
-//     required this.onPressed,
-//   });
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return InkWell(
-//       onTap: onPressed,
-//       child: icon,
-//     );
-//   }
-// }
-
 class CustomElevatedButton extends StatelessWidget {
   final String text;
   final void Function() onPressed;

@@ -6,6 +6,7 @@ import '../model/user_register_model.dart';
 
 abstract class AuthDataSourceContract {
   Future<LoginResponseModel?> login({required LoginRequestModel userModel});
+
   Future<void> logout();
   Future<UserDataModel?> register({required UserRegisterModel user});
 }

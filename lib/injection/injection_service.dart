@@ -1,10 +1,11 @@
+import 'package:app_for_voco/core/navigation/navigation_service.dart';
 import 'package:app_for_voco/injection/injection_container.dart';
 import 'package:flutter/material.dart';
 
 // import '../core/navigation/navigation_service.dart';
 import '../feature/auth/controller/user_id_controller.dart';
 
-// final navigator = NavigationService.shared;
+final navigator = NavigationService.shared;
 
 @immutable
 class Injection {

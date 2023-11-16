@@ -33,7 +33,8 @@ class AuthController with ChangeNotifier {
       loginState = StateResult.completed(response);
       notifyListeners();
     } on PlatformException catch (e) {
-      loginState = StateResult.failed(CustomFailure(message: e.message ?? "Veriler getirilerken bir problem olustu."));
+      loginState = StateResult.failed(CustomFailure(
+          message: e.message ?? "Veriler getirilerken bir problem olustu."));
       notifyListeners();
     }
   }
