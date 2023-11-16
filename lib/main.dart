@@ -2,7 +2,9 @@
 // import 'dart:ui_web' as ui;
 import 'dart:ui';
 
-import 'package:app_for_voco/feature/auth/pages/Login/login_screen.dart';
+import 'package:app_for_voco/core/helpers/language_helper/language_helper.dart';
+import 'package:app_for_voco/feature/auth/view/Login/login_screen.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -16,8 +18,10 @@ void main() async {
   await ApplicationStart.init();
 
   runApp(
-    const ProviderScope(
-      child: MyApp(),
+    LanguageHelper.setupLocales(
+      const ProviderScope(
+        child: MyApp(),
+      ),
     ),
   );
 }
@@ -34,9 +38,9 @@ class MyApp extends StatelessWidget {
         // initialRoute: KRoute.splashPage,
         // onGenerateRoute: NavigationRoute.shared.generateRoute,
         // navigatorKey: NavigationService.shared.navigatorKey,
-        // locale: context.locale,
-        // supportedLocales: context.supportedLocales,
-        // localizationsDelegates: context.localizationDelegates,
+        locale: context.locale,
+        supportedLocales: context.supportedLocales,
+        localizationsDelegates: context.localizationDelegates,
         scrollBehavior: CustomScrollBehaviour(),
         debugShowCheckedModeBanner: false,
         home: const LoginScreen(),
