@@ -1,5 +1,6 @@
 import 'package:app_for_voco/core/error/custom_error.dart';
-import 'package:app_for_voco/feature/home/service/contract/home_data_source.dart';
+
+import 'package:app_for_voco/feature/home/service/datasources/home_data_source.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -13,14 +14,14 @@ final homeProvider = ChangeNotifierProvider<HomeProvider>(
 );
 
 class HomeProvider extends ChangeNotifier {
-  HomeProvider({required HomeDataSourceContract homeDataSource}) {
+  HomeProvider({required ReqResHomeDataSource homeDataSource}) {
     _homeDataSource = homeDataSource;
     checkCurrentUser();
   }
 
   UserDataModel? get getCurrentUser => _appUser;
 
-  late final HomeDataSourceContract _homeDataSource;
+  late final ReqResHomeDataSource _homeDataSource;
 
   UserDataModel? _appUser;
 
@@ -44,12 +45,14 @@ class HomeProvider extends ChangeNotifier {
     //   },
     // );
   }
-  StateResult<dynamic> fetchDataState = const StateResult.initial();
+
+  StateResult<List<UserDataModel>> fetchDataState = const StateResult.initial();
+
   Future<void> fetchData() async {
     fetchDataState = const StateResult.loading();
     notifyListeners();
     try {
-      final response = await _homeDataSource.fetchData();
+      final response = await _homeDataSource.fetchUserList();
       fetchDataState = StateResult.completed(response);
       notifyListeners();
     } on PlatformException catch (e) {

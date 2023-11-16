@@ -20,7 +20,7 @@ UserDataModel _$UserDataModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$UserDataModel {
-  String? get id => throw _privateConstructorUsedError;
+  int? get id => throw _privateConstructorUsedError;
   String? get email => throw _privateConstructorUsedError;
   String? get firstName => throw _privateConstructorUsedError;
   String? get lastName => throw _privateConstructorUsedError;
@@ -39,7 +39,7 @@ abstract class $UserDataModelCopyWith<$Res> {
       _$UserDataModelCopyWithImpl<$Res, UserDataModel>;
   @useResult
   $Res call(
-      {String? id,
+      {int? id,
       String? email,
       String? firstName,
       String? lastName,
@@ -69,7 +69,7 @@ class _$UserDataModelCopyWithImpl<$Res, $Val extends UserDataModel>
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as int?,
       email: freezed == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
@@ -99,7 +99,7 @@ abstract class _$$UserDataModelImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String? id,
+      {int? id,
       String? email,
       String? firstName,
       String? lastName,
@@ -127,7 +127,7 @@ class __$$UserDataModelImplCopyWithImpl<$Res>
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as int?,
       email: freezed == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
@@ -158,7 +158,7 @@ class _$UserDataModelImpl implements _UserDataModel {
       _$$UserDataModelImplFromJson(json);
 
   @override
-  final String? id;
+  final int? id;
   @override
   final String? email;
   @override
@@ -208,7 +208,7 @@ class _$UserDataModelImpl implements _UserDataModel {
 
 abstract class _UserDataModel implements UserDataModel {
   const factory _UserDataModel(
-      {final String? id,
+      {final int? id,
       final String? email,
       final String? firstName,
       final String? lastName,
@@ -218,7 +218,7 @@ abstract class _UserDataModel implements UserDataModel {
       _$UserDataModelImpl.fromJson;
 
   @override
-  String? get id;
+  int? get id;
   @override
   String? get email;
   @override

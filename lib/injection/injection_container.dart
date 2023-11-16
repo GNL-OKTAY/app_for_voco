@@ -1,3 +1,5 @@
+import 'package:app_for_voco/feature/home/controller/home_provider.dart';
+import 'package:app_for_voco/feature/home/service/datasources/home_data_source.dart';
 import 'package:get_it/get_it.dart';
 
 import '../feature/auth/controller/user_id_controller.dart';
@@ -29,12 +31,9 @@ void setupDataSources() {
 
   // getit.registerSingleton<WellcomeDataSource>(WellcomeDataSource());
 
-  // getit.registerLazySingleton<HomeDataSourceContract>(
-  //   () => HomeDataSource(
-  //     firebaseAuth: FirebaseAuth.instance,
-  //     firebaseFirestore: FirebaseFirestore.instance,
-  //   ),
-  // );
+  getit.registerLazySingleton<ReqResHomeDataSource>(
+    () => ReqResHomeDataSource(),
+  );
 
   // getit.registerSingleton<MarketDataSource>(MarketDataSource());
   // getit.registerSingleton<ProfileDataSource>(ProfileDataSource());
@@ -77,11 +76,11 @@ void setupProvider() {
     ),
   );
 
-  // getit.registerLazySingleton<HomeProvider>(
-  //   () => HomeProvider(
-  //     homeUseCase: getit(),
-  //   ),
-  // );
+  getit.registerLazySingleton<HomeProvider>(
+    () => HomeProvider(
+      homeDataSource: getit(),
+    ),
+  );
 
   // getit.registerLazySingleton<CalendarDetayProvider(
   //   CalendarDetayProvider.new,

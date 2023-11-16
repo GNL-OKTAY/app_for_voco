@@ -1,4 +1,5 @@
 import 'package:app_for_voco/core/navigation/navigation_service.dart';
+import 'package:app_for_voco/feature/home/service/datasources/home_data_source.dart';
 import 'package:app_for_voco/injection/injection_container.dart';
 import 'package:flutter/material.dart';
 
@@ -12,7 +13,8 @@ class Injection {
   const Injection._();
 
   // static CalendarUsecase get calendarUsecase => getit.get<CalendarUsecase>();
-  // static HomeUseCase get homeUseCase => getit.get<HomeUseCase>();
+  static ReqResHomeDataSource get homeUseCase =>
+      getit.get<ReqResHomeDataSource>();
   // static MarketUseCase get marketUseCase => getit.get<MarketUseCase>();
   // static ProfileUsecase get profileUsecase => getit.get<ProfileUsecase>();
   // static WelcomeDataSourceContract get welcomeDataSource =>

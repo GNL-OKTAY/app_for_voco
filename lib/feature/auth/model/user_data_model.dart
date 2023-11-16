@@ -6,7 +6,7 @@ part 'user_data_model.g.dart';
 @freezed
 abstract class UserDataModel with _$UserDataModel {
   const factory UserDataModel({
-    final String? id,
+    final int? id,
     final String? email,
     final String? firstName,
     final String? lastName,

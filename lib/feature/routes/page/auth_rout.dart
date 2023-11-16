@@ -14,19 +14,17 @@ class AuthRootPage extends ConsumerStatefulWidget {
 class _RootPageState extends ConsumerState<AuthRootPage> {
   @override
   Widget build(BuildContext context) {
-    checkLoginStatus(
-        context); 
+    checkLoginStatus(context);
     return const Scaffold(
       body: Center(
-        child: CircularProgressIndicator(), 
+        child: CircularProgressIndicator(),
       ),
     );
   }
 
   Future<void> checkLoginStatus(BuildContext context) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    final String? token =
-        prefs.getString('token'); 
+    final String? token = prefs.getString('token');
 
     if (token != null && token.isNotEmpty) {
       // Eğer token varsa ve boş değilse, kullanıcı daha önce giriş yapmış demektir
