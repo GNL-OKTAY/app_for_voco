@@ -10,18 +10,11 @@ class LoginScreenTopImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // const String loginIcon = "assets/icons/login.svg";
-    // Lottie dosyasını yükleyin
     final lottieFile = Lottie.asset('assets/lotti/Animation.json');
 
     return Column(
       children: [
         const SizedBox(height: defaultPadding * 4),
-        // Text(
-        //   LocaleKeys.login_login.tr().toUpperCase(),
-        //   style: context.general.textTheme.displaySmall,
-        // ),
-        // const SizedBox(height: defaultPadding * 2),
         Row(
           children: [
             const Spacer(),

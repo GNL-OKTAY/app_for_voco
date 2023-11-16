@@ -1,6 +1,6 @@
 import 'package:get_it/get_it.dart';
 
-import '../feature/auth/controller/user_id_provider.dart';
+import '../feature/auth/controller/user_id_controller.dart';
 import '../feature/auth/service/contract/auth_datasource_contract.dart';
 import '../feature/auth/service/datasources/reqres_auth_datasource.dart';
 import '../feature/auth/controller/auth_controller.dart';
@@ -98,8 +98,8 @@ void setupProvider() {
   //   () => UserDetayProvider(),
   // );
 
-  getit.registerLazySingleton<UserIdProvider>(
-    () => UserIdProvider(),
+  getit.registerLazySingleton<UserIdController>(
+    () => UserIdController(),
   );
   // getit.registerLazySingleton<AddressProvider>(
   //   () => AddressProvider(),

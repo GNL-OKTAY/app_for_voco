@@ -2,7 +2,7 @@ import 'package:app_for_voco/injection/injection_container.dart';
 import 'package:flutter/material.dart';
 
 // import '../core/navigation/navigation_service.dart';
-import '../feature/auth/controller/user_id_provider.dart';
+import '../feature/auth/controller/user_id_controller.dart';
 
 // final navigator = NavigationService.shared;
 
@@ -29,6 +29,6 @@ class Injection {
   //     getit.get<MarketInfoCardProvider>();
   // static UserDetayProvider get userDetayProvider =>
   // getit.get<UserDetayProvider>();
-  static UserIdProvider get uidProvider => getit.get<UserIdProvider>();
+  static UserIdController get uidProvider => getit.get<UserIdController>();
   // static AddressProvider get addressProvider => getit.get<AddressProvider>();
 }

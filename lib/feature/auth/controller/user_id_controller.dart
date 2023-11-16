@@ -5,7 +5,7 @@
 //   (ref) => getit.get<UserIdProvider>(),
 // );
 
-class UserIdProvider {
+class UserIdController {
   String? _userId;
   String? get getUserId => _userId;
   set setUserId(String userIdToSet) => _userId = userIdToSet;
