@@ -1,10 +1,11 @@
+import 'package:app_for_voco/core/themes/constants/color_constants.dart';
 import 'package:app_for_voco/injection/injection_service.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:lottie/lottie.dart';
 
 import '../../core/navigation/constant/routes.dart';
-
 
 // import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -20,7 +21,7 @@ class _SplashViewState extends State<SplashPage> {
   void initState() {
     super.initState();
     Future<dynamic>.delayed(
-      const Duration(seconds: 1),
+      const Duration(seconds: 3),
     ).whenComplete(
       () => navigator.navigaToClear(path: KRoute.authRootPage),
     );
@@ -29,26 +30,26 @@ class _SplashViewState extends State<SplashPage> {
 
   @override
   Widget build(BuildContext context) {
+    final lottieFile = Lottie.asset('assets/lotti/AnimationHello.json');
     // listenAndNavigate(splashProvider);
     return Scaffold(
-      backgroundColor: Colors.lightBlue,
+      // backgroundColor: const Color.fromARGB(255, 255, 255, 255),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            // Text("avare")
-            // Center(
-            //     child: SizedBox(
-            //         height: 250.h,
-            //         width: 250.w,
-            //         child: IconConstants.appIconWhite.toImage)),
-            SizedBox(
-              height: 40.h,
+            const SizedBox(height: defaultPadding * 4),
+            Row(
+              children: [
+                const Spacer(),
+                Expanded(
+                  flex: 8,
+                  child: lottieFile,
+                ),
+                const Spacer(),
+              ],
             ),
-            const Text("merhaba")
-            // WavyBoldText(
-            //   title: LocaleKeys.splash_appName.tr(),
-            // ),
+            const SizedBox(height: defaultPadding * 5),
           ],
         ),
       ),

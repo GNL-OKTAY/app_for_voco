@@ -1,8 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:get_storage/get_storage.dart';
-
 import '/core/localization/locale_keys.g.dart';
 import '/core/error/result_types/state_result/state_result.dart';
 import '/core/extensions/context_extension.dart';
@@ -115,7 +113,6 @@ class _LoginFormState extends ConsumerState<LoginForm> {
                 initial: () {},
                 loading: () {},
                 completed: (data) {
-                
                   context.showSnackBar(
                     SnackBar(
                       content: Text(LocaleKeys.login_loginSuccessful.tr()),
