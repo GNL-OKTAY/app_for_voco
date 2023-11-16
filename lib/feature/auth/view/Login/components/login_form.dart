@@ -1,16 +1,18 @@
+import 'package:app_for_voco/feature/auth_root/auth_root.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import '/core/localization/locale_keys.g.dart';
+
 import '/core/error/result_types/state_result/state_result.dart';
 import '/core/extensions/context_extension.dart';
 import '/core/helpers/regex/regex_helper.dart';
+import '/core/localization/locale_keys.g.dart';
 import '/core/themes/constants/color_constants.dart';
 import '/core/widgets/button/buttons.dart';
-import '/injection/injection_container.dart';
-import '../../../../home/view/home_screen.dart';
+import '../../../../home/screen/home_screen.dart';
 import '../../../controller/auth_controller.dart';
 import '../../../service/model/user_login_model.dart';
+import '../../../service/reqres_auth_service.dart';
 import '../../../widget/auth_text_form_field.dart';
 
 class LoginForm extends ConsumerStatefulWidget {
@@ -28,7 +30,13 @@ class _LoginFormState extends ConsumerState<LoginForm> {
   final _emailLogin = TextEditingController(text: 'eve.holt@reqres.in');
   final _passwordController = TextEditingController(text: 'cityslicka');
 
-  final AuthController _authProvider = getit.get<AuthController>();
+  late final AuthController _authController;
+
+  @override
+  void initState() {
+    _authController = ref.read(authController);
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -56,8 +64,7 @@ class _LoginFormState extends ConsumerState<LoginForm> {
       inputPass: true,
       isObscure: true,
       validator: (val) {
-        final hasSpecialCharacter =
-            RegexHelper.shared.hasSpecialCharacter(email: val ?? '');
+        final hasSpecialCharacter = RegexHelper.shared.hasSpecialCharacter(email: val ?? '');
         if (val!.isEmpty) {
           return LocaleKeys.login_loginPlsPassword.tr();
         } else {
@@ -95,10 +102,7 @@ class _LoginFormState extends ConsumerState<LoginForm> {
 
   Widget _loginButton() {
     return CustomElevatedButton(
-      isLoading: ref.watch(authProvider).loginState ==
-              const StateResult<dynamic>.loading()
-          ? true
-          : false,
+      isLoading: ref.watch(authController).isLoggedIn,
       text: LocaleKeys.login_login.tr(),
       onPressed: () async {
         final isValidatedInputs = _validateInputs();
@@ -108,20 +112,20 @@ class _LoginFormState extends ConsumerState<LoginForm> {
             email: _emailLogin.text,
             password: _passwordController.text,
           );
-          await _authProvider.login(userModel: userModel);
-          ref.watch(authProvider).loginState.when(
+          await _authController.login(userModel: userModel);
+          ref.watch(authController).loginState.when(
                 initial: () {},
                 loading: () {},
                 completed: (data) {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const AuthRootPage()),
+                  );
+
                   context.showSnackBar(
                     SnackBar(
                       content: Text(LocaleKeys.login_loginSuccessful.tr()),
                     ),
-                  );
-
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => const HomePage()),
                   );
                 },
                 failed: (failure) {

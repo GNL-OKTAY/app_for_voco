@@ -53,7 +53,7 @@ class _SignUpFormState extends ConsumerState<SignUpForm> {
   }
 
   Widget _registerButton(BuildContext context) => CustomElevatedButton(
-        isLoading: ref.watch(authProvider).registerState == const StateResult<UserDataModel?>.loading() ? true : false,
+        isLoading: ref.watch(authController).registerState == const StateResult<UserDataModel?>.loading() ? true : false,
         // isLoading: false,
         text: "LocaleKeys.register_register.tr()",
         // child: const Text("singup"),
@@ -68,9 +68,9 @@ class _SignUpFormState extends ConsumerState<SignUpForm> {
               username: _username.text,
               password: _password1.text,
             );
-            await ref.read(authProvider).register(userModel: user);
+            await ref.read(authController).register(userModel: user);
 
-            await ref.watch(authProvider).registerState.when(
+            await ref.watch(authController).registerState.when(
                   initial: () {},
                   loading: () {},
                   completed: (data) async {

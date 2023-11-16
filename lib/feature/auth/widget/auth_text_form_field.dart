@@ -47,7 +47,6 @@ class _AuthTextFieldState extends State<AuthTextField> {
           initialValue: widget.initialValue,
           controller: widget.controller,
           style: const TextStyle(
-            color: Colors.black,
             fontSize: 14,
           ),
           obscureText: _passwordVisible,
@@ -99,7 +98,7 @@ class NewWidget extends StatelessWidget {
               ? Icons.visibility_off
               : Icons.visibility
           : null,
-      color: Theme.of(context).primaryColorDark,
+      // color: Theme.of(context).primaryColorDark,
     );
   }
 }

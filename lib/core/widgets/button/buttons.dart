@@ -19,10 +19,7 @@ class CustomElevatedButton extends StatelessWidget {
   Widget build(BuildContext context) {
     final borderRadius = context.border.lowBorderRadius;
     final gradient = LinearGradient(
-      colors: [
-        context.general.colorScheme.secondaryContainer.withOpacity(0.4),
-        context.general.colorScheme.secondaryContainer
-      ],
+      colors: [context.general.colorScheme.secondaryContainer.withOpacity(0.4), context.general.colorScheme.secondaryContainer],
     );
 
     return Container(
@@ -31,8 +28,6 @@ class CustomElevatedButton extends StatelessWidget {
       height: 50.h,
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
-          backgroundColor: Colors.transparent,
-          shadowColor: Colors.transparent,
           shape: RoundedRectangleBorder(borderRadius: borderRadius),
         ),
         onPressed: onPressed,
@@ -59,8 +54,7 @@ class CustomBlinkingButton extends StatefulWidget {
   _CustomBlinkingButtonState createState() => _CustomBlinkingButtonState();
 }
 
-class _CustomBlinkingButtonState extends State<CustomBlinkingButton>
-    with SingleTickerProviderStateMixin {
+class _CustomBlinkingButtonState extends State<CustomBlinkingButton> with SingleTickerProviderStateMixin {
   late final AnimationController _animationController;
 
   @override

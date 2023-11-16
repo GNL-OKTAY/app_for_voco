@@ -4,7 +4,7 @@ import '../../model/user_data_model.dart';
 import '../model/user_login_model.dart';
 import '../model/user_register_model.dart';
 
-abstract class AuthDataSourceContract {
+abstract class AuthServiceContract {
   Future<LoginResponseModel?> login({required LoginRequestModel userModel});
 
   Future<void> logout();

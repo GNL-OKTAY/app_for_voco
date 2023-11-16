@@ -1,13 +1,9 @@
-import 'package:app_for_voco/core/themes/constants/color_constants.dart';
-import 'package:app_for_voco/injection/injection_service.dart';
-
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lottie/lottie.dart';
 
 import '../../core/navigation/constant/routes.dart';
-
-// import 'package:flutter_riverpod/flutter_riverpod.dart';
+import '../../core/themes/constants/color_constants.dart';
+import '../../navigation_service.dart';
 
 class SplashPage extends StatefulWidget {
   const SplashPage({super.key});

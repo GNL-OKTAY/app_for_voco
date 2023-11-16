@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../Login/login_screen.dart';
-import '../../Register/signup_screen.dart';
+import '../../login/login_screen.dart';
+import '../../register/signup_screen.dart';
 
 class LoginAndSignupBtn extends StatelessWidget {
   const LoginAndSignupBtn({

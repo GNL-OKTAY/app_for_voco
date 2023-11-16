@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 
 import 'package:kartal/kartal.dart';
 
-import '../../injection/injection_container.dart';
+
 
 @immutable
 class ApplicationStart {
@@ -17,7 +17,7 @@ class ApplicationStart {
     // await Firebase.initializeApp(
     //   options: DefaultFirebaseOptions.currentPlatform,
     // );
-    setupDependencies();
+    
     // FirebaseUIAuth.configureProviders(
     //   [
     //     EmailAuthProvider(),

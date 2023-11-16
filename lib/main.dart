@@ -1,14 +1,15 @@
 import 'dart:ui';
 
-import 'package:app_for_voco/core/helpers/language_helper/language_helper.dart';
-import 'package:app_for_voco/core/navigation/constant/routes.dart';
-import 'package:app_for_voco/core/navigation/navigation_route.dart';
-import 'package:app_for_voco/core/navigation/navigation_service.dart';
 import 'package:easy_localization/easy_localization.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'core/helpers/screen_util_helper/screen_util.dart';
 import 'package:flutter/material.dart';
-import 'global/initialize/app_theme.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+import 'core/helpers/language_helper/language_helper.dart';
+import 'core/helpers/screen_util_helper/screen_util.dart';
+import 'core/navigation/constant/routes.dart';
+import 'core/navigation/navigation_route.dart';
+import 'core/navigation/navigation_service.dart';
+import 'core/themes/theme_data/custom_theme_data.dart';
 import 'global/initialize/application_start.dart';
 
 void main() async {
@@ -31,7 +32,7 @@ class MyApp extends StatelessWidget {
     return ScreenUtilHelper.screenUtilInit(
       MaterialApp(
         title: 'Case Study Voco',
-        theme: AppTheme.theme,
+        theme: CustomThemeData.darkTheme,
         initialRoute: KRoute.splashPage,
         onGenerateRoute: NavigationRoute.shared.generateRoute,
         navigatorKey: NavigationService.shared.navigatorKey,

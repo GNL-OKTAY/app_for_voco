@@ -1,9 +1,8 @@
-import 'dart:convert';
 import 'dart:developer';
 
 import 'package:dio/dio.dart';
 
-import '../../../auth/model/user_data_model.dart';
+import '../../auth/model/user_data_model.dart';
 
 const loginUrl = "https://reqres.in/api/login";
 const userListUrl = "https://reqres.in/api/users?page=2";
@@ -22,9 +21,7 @@ class ReqResHomeDataSource {
     if (response.statusCode == 200) {
       log(" Successful");
       print("$response");
-      final modellist = (response.data["data"] as List)
-          .map((e) => UserDataModel.fromJson(e))
-          .toList();
+      final modellist = (response.data["data"] as List).map((e) => UserDataModel.fromMap(e)).toList();
 
       return modellist;
       // final model = UserDataModel.fromJson(jsonDecode(response.data));

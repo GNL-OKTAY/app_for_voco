@@ -4,22 +4,21 @@ import 'package:app_for_voco/feature/auth/service/model/login_response_model.dar
 import 'package:dio/dio.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import '../../model/user_data_model.dart';
-import '../contract/auth_datasource_contract.dart';
-import '../model/user_login_model.dart';
-import '../model/user_register_model.dart';
+import '../model/user_data_model.dart';
+import 'contract/auth_datasource_contract.dart';
+import 'model/user_login_model.dart';
+import 'model/user_register_model.dart';
 
 const baseUrl = "https://reqres.in/api/login";
 
-class ReqResAuthDataSource extends AuthDataSourceContract {
-  ReqResAuthDataSource() {
+class ReqResAuthDataService extends AuthServiceContract {
+  ReqResAuthDataService() {
     _dio = Dio();
   }
   late final Dio _dio;
 
   @override
-  Future<LoginResponseModel?> login(
-      {required LoginRequestModel userModel}) async {
+  Future<LoginResponseModel?> login({required LoginRequestModel userModel}) async {
     final response = await _dio.post(
       baseUrl,
       data: userModel.toJson(),
@@ -45,14 +44,10 @@ class ReqResAuthDataSource extends AuthDataSourceContract {
   }
 
   @override
-  Future<void> logout() async {
-    // TODO: implement logout
-    throw UnimplementedError();
-  }
+  Future<void> logout() async {}
 
   @override
   Future<UserDataModel?> register({required UserRegisterModel user}) async {
-    // TODO: implement register
-    throw UnimplementedError();
+    return null;
   }
 }

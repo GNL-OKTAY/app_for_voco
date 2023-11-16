@@ -1,9 +1,9 @@
-import 'package:app_for_voco/feature/auth/view/Login/login_screen.dart';
-import 'package:app_for_voco/feature/routes/page/auth_rout.dart';
-import 'package:app_for_voco/feature/splash/splash_view.dart';
 import 'package:flutter/material.dart';
 
-import '../../feature/home/view/home_screen.dart';
+import '../../feature/auth/view/login/login_screen.dart';
+import '../../feature/auth_root/auth_root.dart';
+import '../../feature/home/screen/home_screen.dart';
+import '../../feature/splash/splash_view.dart';
 import 'constant/routes.dart';
 
 class NavigationRoute {
