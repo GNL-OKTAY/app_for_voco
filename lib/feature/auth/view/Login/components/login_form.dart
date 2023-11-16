@@ -9,7 +9,7 @@ import '/core/helpers/regex/regex_helper.dart';
 import '/core/themes/constants/color_constants.dart';
 import '/core/widgets/button/buttons.dart';
 import '/injection/injection_container.dart';
-import '../../../../home/home_screen.dart';
+import '../../../../home/view/home_screen.dart';
 import '../../../controller/auth_controller.dart';
 import '../../../service/model/user_login_model.dart';
 import '../../../widget/auth_text_form_field.dart';
