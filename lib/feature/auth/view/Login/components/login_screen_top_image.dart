@@ -1,8 +1,5 @@
-
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:kartal/kartal.dart';
-
+import 'package:lottie/lottie.dart';
 
 import '../../../../../core/themes/constants/color_constants.dart';
 
@@ -13,20 +10,24 @@ class LoginScreenTopImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // const String loginIcon = "assets/icons/login.svg";
+    // Lottie dosyasını yükleyin
+    final lottieFile = Lottie.asset('assets/lotti/Animation.json');
+
     return Column(
       children: [
         const SizedBox(height: defaultPadding * 4),
-        Text(
-          "LocaleKeys.login_login.tr().toUpperCase()",
-          style: context.general.textTheme.displayLarge,
-        ),
-        const SizedBox(height: defaultPadding * 2),
+        // Text(
+        //   LocaleKeys.login_login.tr().toUpperCase(),
+        //   style: context.general.textTheme.displaySmall,
+        // ),
+        // const SizedBox(height: defaultPadding * 2),
         Row(
           children: [
             const Spacer(),
             Expanded(
               flex: 8,
-              child: SvgPicture.asset("assets/icons/login.svg"),
+              child: lottieFile,
             ),
             const Spacer(),
           ],

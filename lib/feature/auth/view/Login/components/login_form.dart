@@ -54,6 +54,7 @@ class _LoginFormState extends ConsumerState<LoginForm> {
     return AuthTextField(
       labelText: LocaleKeys.login_loginPassword.tr(),
       controller: _passwordController,
+      inputPass: true,
       isObscure: true,
       validator: (val) {
         final hasSpecialCharacter =

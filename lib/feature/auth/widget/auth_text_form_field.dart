@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class AuthTextField extends StatefulWidget {
   final String? initialValue;
   final TextInputType? inputType;
+  final bool? inputPass;
   final double? height;
   final TextEditingController controller;
   final bool isObscure;
@@ -14,6 +15,7 @@ class AuthTextField extends StatefulWidget {
     super.key,
     this.initialValue,
     this.inputType,
+    this.inputPass = false,
     this.height,
     this.labelText,
     required this.controller,
@@ -27,6 +29,13 @@ class AuthTextField extends StatefulWidget {
 
 class _AuthTextFieldState extends State<AuthTextField> {
   bool _passwordVisible = false;
+
+  @override
+  void initState() {
+    _passwordVisible = widget.inputPass!;
+
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {

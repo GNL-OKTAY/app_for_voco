@@ -41,7 +41,7 @@ class CustomElevatedButton extends StatelessWidget {
     final borderRadius = context.border.lowBorderRadius;
     final gradient = LinearGradient(
       colors: [
-        context.general.colorScheme.onSecondaryContainer,
+        context.general.colorScheme.secondaryContainer.withOpacity(0.4),
         context.general.colorScheme.secondaryContainer
       ],
     );
