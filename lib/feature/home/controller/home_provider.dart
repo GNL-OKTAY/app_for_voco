@@ -1,5 +1,7 @@
+import 'package:app_for_voco/core/error/custom_error.dart';
 import 'package:app_for_voco/feature/home/service/contract/home_data_source.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../core/error/result_types/state_result/state_result.dart';
@@ -41,5 +43,19 @@ class HomeProvider extends ChangeNotifier {
     //     notifyListeners();
     //   },
     // );
+  }
+  StateResult<dynamic> fetchDataState = const StateResult.initial();
+  Future<void> fetchData() async {
+    fetchDataState = const StateResult.loading();
+    notifyListeners();
+    try {
+      final response = await _homeDataSource.fetchData();
+      fetchDataState = StateResult.completed(response);
+      notifyListeners();
+    } on PlatformException catch (e) {
+      fetchDataState = StateResult.failed(CustomFailure(
+          message: e.message ?? "Veriler getirilerken bir problem olustu."));
+      notifyListeners();
+    }
   }
 }

@@ -14,6 +14,29 @@ class ReqResHomeDataSource extends HomeDataSourceContract {
   late final Dio _dio;
 
   @override
+  Future<dynamic> fetchData() async {
+    // final response = await _dio.post(
+    //   baseUrl,
+    //   data: userModel.toJson(),
+    // );
+
+    // log("${response.statusCode}");
+
+    // if (response.statusCode == 200) {
+    //   log("Login Successful");
+    //   log("$response");
+
+    //   final model = LoginResponseModel.fromMap(response.data);
+    //   log("Login Successful");
+    //   log(model.toString());
+    //   return model;
+    // } else {
+    //   log('Request failed with status code: ${response.statusCode}');
+    //   return null;
+    // }
+  }
+
+  @override
   Future<UserDataModel?> checkCurrentUser() async {
     return null;
 
